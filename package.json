@@ -4,8 +4,10 @@
   "description": "A combination of hydration possibilities created with React",
   "main": "index.js",
   "scripts": {
-    "start:createRoot": "http-server -o client/index.html -p 3000 -c-1",
-    "start:hydrateRoot": "http-server -o client/index.html -p 3001 -c-1",
+    "start:createRoot": "http-server -c-1 -o client/index.html",
+    "start:hydrateExample-1": "conc",
+    "start:hydrateExample-2": "conc",
+    "start:hydrateExample-3": "conc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -15,8 +17,15 @@
   "author": "MBing",
   "license": "MIT",
   "dependencies": {
+    "concurrently": "^8.2.1",
     "http-server": "^14.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.2",
+    "@babel/preset-env": "^7.23.2",
+    "@babel/preset-react": "^7.22.15",
+    "@babel/register": "^7.22.15"
   }
 }

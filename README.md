@@ -15,31 +15,39 @@ You have worked with React or know what it is. If not, please check [React](http
 
 ## Used React features
 
+React supports both client and server side rendering. The examples will use both.
+
+### Client API
+
+- createRoot (no hydration support, added for comparison)
+- hydrateRoot
+
 ### Server API
 
 - renderToStaticMarkup (no hydration support, added for comparison)
-
 - renderToString
 
 - renderToPipeableStream
 - renderToReadableStream
 
-### Client API
-
-- createRoot
-- hydrateRoot
-
 ## Scripts
 
 There are numourous scripts to run the application. The most important ones are:
 
-- `npm run dev` - This will run the application in development mode
-- `npm run build` - This will build the application
-- `npm run start` - This will run the application in production mode
+### No hydration
+
+- `npm run start:createRoot` -
+- `npm run start:renderToStaticMarkup`
+
+### Hydration
+
+- `npm run start:hydrateExample-1` - This will run a basic server-side-rendered example
+- `npm run start:hydrateExample-2` - This will run the renderToPipeableStream example
+- `npm run start:hydrateExample-3` - This will run the renderToReadableStream example
 
 ## Disclaimer
 
-Most of these use cases are not something you will be using, this is a peek at what frameworks like Remix, NextJS, Gatsby, etc. are doing under the hood.
+Most of these use examples are not something you will be doing yourself, this is a peek at what frameworks like Remix, NextJS, Gatsby, etc. are doing under the hood.
 
 ## Reach out
 

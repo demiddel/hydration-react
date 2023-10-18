@@ -1,3 +1,4 @@
+// NO HYDRATION !!
 // There are no imports here, because I am using the CDN version of React & ReactDOM.
 // Also no use of JSX, so I don't need Babel etc. and to serve/host I use http-server.
 
