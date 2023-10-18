@@ -19,8 +19,6 @@
   "author": "MBing",
   "license": "MIT",
   "dependencies": {
-    "concurrently": "^8.2.1",
-    "http-server": "^14.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.17.0"
@@ -29,6 +27,8 @@
     "@babel/core": "^7.23.2",
     "@babel/preset-env": "^7.23.2",
     "@babel/preset-react": "^7.22.15",
-    "@babel/register": "^7.22.15"
+    "@babel/register": "^7.22.15",
+    "concurrently": "^8.2.1",
+    "http-server": "^14.1.1"
   }
 }
