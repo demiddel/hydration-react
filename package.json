@@ -4,6 +4,8 @@
   "description": "A combination of hydration possibilities created with React",
   "main": "index.js",
   "scripts": {
+    "start:createRoot": "http-server -o client/index.html -p 3000 -c-1",
+    "start:hydrateRoot": "http-server -o client/index.html -p 3001 -c-1",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -13,6 +15,7 @@
   "author": "MBing",
   "license": "MIT",
   "dependencies": {
+    "http-server": "^14.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
