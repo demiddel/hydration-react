@@ -1,36 +1,14 @@
-import { useState, useEffect } from "react";
+const React = require("react");
+// const { useState, useEffect } = require("react");
 
-const App = ({ isClient }) => {
-  const [isClient, setIsClient] = useState(isClient);
+const App = ({ isClient = false }) => {
+  //   const [isClient, setIsClient] = React.useState(initialState);
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  //   React.useEffect(() => {
+  //     setIsClient(true);
+  //   }, []);
 
-  return (
-    <html>
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="/styles.css"></link>
-        <title>My app</title>
-        {/* <!-- The link below removes the favicon.ico error --> */}
-        <link rel="shortcut icon" href="#" />
-        {/* <!-- Add CDN for React & ReactDOM --> */}
-        <script
-          crossorigin
-          src="https://unpkg.com/react@18/umd/react.production.min.js"
-        ></script>
-        <script
-          crossorigin
-          src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
-        ></script>
-      </head>
-      <body>
-        <h1>{isClient ? "Is Client" : "Is Server"}</h1>
-      </body>
-    </html>
-  );
+  return <h1>{isClient ? "Is Client" : "Is Server"}</h1>;
 };
 
-export { App };
+module.exports = { App };

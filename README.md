@@ -36,14 +36,14 @@ There are numourous scripts to run the application. The most important ones are:
 
 ### No hydration
 
-- `npm run start:createRoot` - This will run a basic client-side-rendered example.
-- `npm run start:renderToStaticMarkup` - This will run a simple static site generated example.
+- `npm run start:csr` - This will run a basic client-side-rendered example.
+- `npm run start:ssg` - This will run a simple static site generated example.
 
 ### Hydration
 
-- `npm run start:hydrateExample-1` - This will run a basic server-side-rendered example
-- `npm run start:hydrateExample-2` - This will run the renderToPipeableStream example
-- `npm run start:hydrateExample-3` - This will run the renderToReadableStream example
+- `npm run start:hydrate-1` - This will run a basic server-side-rendered example
+- `npm run start:hydrate-2` - This will run the renderToPipeableStream example
+- `npm run start:hydrate-3` - This will run the renderToReadableStream example
 
 ## Disclaimer
 

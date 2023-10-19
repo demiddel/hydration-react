@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "http": "http-server -c-1",
-    "start:createRoot": "http-server -c-1 ./client/createRoot",
-    "start:staticExample": "node server/renderToStaticMarkup/buildStatic.js && http-server -c-1 ./server/renderToStaticMarkup/dist",
-    "start:hydrateExample-1": "conc",
-    "start:hydrateExample-2": "conc",
-    "start:hydrateExample-3": "conc",
+    "start:csr": "http-server -c-1 ./client/createRoot",
+    "start:ssg": "node server/renderToStaticMarkup/buildStatic.js && http-server -c-1 ./server/renderToStaticMarkup/dist",
+    "start:ssr": "node server/renderToString",
+    "start:hydrate-1": "conc",
+    "start:hydrate-2": "conc",
+    "start:hydrate-3": "conc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -19,6 +20,7 @@
   "author": "MBing",
   "license": "MIT",
   "dependencies": {
+    "express": "^4.18.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.17.0"
