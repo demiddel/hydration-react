@@ -1,7 +1,6 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
 
-function Layout({ title, description, ...props }) {
+const Layout = ({ title, description, ...props }) => {
   return (
     <html lang="en">
       <head>
@@ -16,6 +15,6 @@ function Layout({ title, description, ...props }) {
       <body>{props.children}</body>
     </html>
   );
-}
+};
 
 export default Layout;

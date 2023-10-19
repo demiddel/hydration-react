@@ -6,7 +6,7 @@
   "scripts": {
     "http": "http-server -c-1",
     "start:createRoot": "http-server -c-1 -o client/index.html",
-    "start:staticExample": "node server/renderToStaticMarkup/buildStatic.js && http-server -c-1 -o server/renderToStaticMarkup/dist/index.html",
+    "start:staticExample": "node server/renderToStaticMarkup/buildStatic.js && http-server -c-1 ./server/renderToStaticMarkup/dist",
     "start:hydrateExample-1": "conc",
     "start:hydrateExample-2": "conc",
     "start:hydrateExample-3": "conc",
