@@ -1,6 +1,6 @@
 # Hydration React
 
-This repo contains examples of how React uses hydration and rendering. This is purely for educational purposes. The ideal state is to have a very fast and optimal React application. The examples will be very simple, the concept is more important.
+This repo contains examples of how React uses hydration and rendering. This is purely for educational purposes. The ideal state is to have a very fast and optimal React application. The examples will be very simple, the concept is more important. Hydration is the concept of when something got rendered on the server side, that the events will be taken over on the client side.
 
 ## Getting Started
 
@@ -36,8 +36,8 @@ There are numourous scripts to run the application. The most important ones are:
 
 ### No hydration
 
-- `npm run start:createRoot` -
-- `npm run start:renderToStaticMarkup`
+- `npm run start:createRoot` - This will run a basic client-side-rendered example.
+- `npm run start:renderToStaticMarkup` - This will run a simple static site generated example.
 
 ### Hydration
 
