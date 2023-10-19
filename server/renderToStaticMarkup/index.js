@@ -7,11 +7,11 @@ import Root from "./Root";
 
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Home from "./pages/Home";
 
 const HomePage = (
   <Root>
-    <h1>My Site</h1>
-    <p>Welcome to my website.</p>
+    <Home />
   </Root>
 );
 const AboutPage = (
@@ -24,6 +24,7 @@ const ContactPage = (
     <Contact />
   </Root>
 );
+
 buildStaticPage("index", renderToStaticMarkup(HomePage));
 buildStaticPage("about", renderToStaticMarkup(AboutPage));
 buildStaticPage("contact", renderToStaticMarkup(ContactPage));
