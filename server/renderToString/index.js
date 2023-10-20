@@ -1,33 +1,28 @@
 // Basic SSR Example with hydration.
+// Using esbuild to bundle the client and server code.
 const path = require("path");
 const fs = require("fs");
-const PORT = process.env.PORT || 3000;
 
 const express = require("express");
 const { renderToString } = require("react-dom/server");
 
-// To compile React JSX.
-require("@babel/register");
-
-const { App } = require("../../shared/components/App");
-
+const PORT = process.env.PORT || 3000;
 const app = express();
-const staticPath = path.join(__dirname + "./../../client/hydrateRoot");
-const componentPath = path.join(__dirname + "./../../shared/components");
+const publicPath = path.resolve(__dirname + "/public");
 
-app.use("/js/index.js", express.static(`${staticPath}/index.js`));
-app.use("/js/App.js", express.static(`${componentPath}/App.js`));
+const App = require(publicPath + "/js/components/App");
+
+app.use(express.static(publicPath));
 
 app.get("/", (req, res) => {
   const html = renderToString(App({ initialState: false }));
 
-  fs.readFile(`${staticPath}/index.html`, "utf8", (err, data) => {
+  fs.readFile(`${publicPath}/index.html`, "utf8", (err, data) => {
     if (err) {
       console.error(err);
       return res.status(500).send("An error occurred");
     }
 
-    // res.set("Content-Type", "text/html");
     return res.send(
       data.replace('<div id="root"></div>', `<div id="root">${html}</div>`)
     );

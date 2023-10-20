@@ -1,14 +1,13 @@
-const React = require("react");
-// const { useState, useEffect } = require("react");
+import * as React from "react";
 
-const App = ({ isClient = false }) => {
-  //   const [isClient, setIsClient] = React.useState(initialState);
+const App = ({ initialState = false }) => {
+  const [isClient, setIsClient] = React.useState(false);
 
-  //   React.useEffect(() => {
-  //     setIsClient(true);
-  //   }, []);
+  React.useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   return <h1>{isClient ? "Is Client" : "Is Server"}</h1>;
 };
 
-module.exports = { App };
+export default App ;
