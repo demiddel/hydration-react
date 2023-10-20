@@ -3,14 +3,13 @@
 // A common approach is to save these components in a shared folder, so that both the server and client can import them.
 
 // Get App component from shared folder `./js/App.js`.
-import { App } from "./components/App.js";
+import React from "react";
+import { hydrateRoot } from "react-dom/client";
+import { App } from "./../../../shared/components/App";
 
 const isClient = true;
 
 // Delay the hydration to simulate a slow connection.
 setTimeout(() => {
-  ReactDOMClient.hydrateRoot(
-    document.getElementById("root"),
-    App({ initialState: isClient })
-  );
+  hydrateRoot(document.getElementById("root"), App({ initialState: isClient }));
 }, 3000);

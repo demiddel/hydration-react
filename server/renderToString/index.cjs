@@ -5,10 +5,11 @@ import fs from "fs";
 
 import express from "express";
 import { renderToString } from "react-dom/server";
-import { App } from "./../../shared/components/App.js";
+import { App } from "../../shared/components/App.js";
 
 const PORT = process.env.PORT || 3000;
 const app = express();
+
 const publicPath = path.join(__dirname + "/public");
 
 app.use(express.static(publicPath));

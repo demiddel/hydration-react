@@ -8,10 +8,10 @@
     "start:csr": "http-server -c-1 ./client/createRoot",
     "start:ssg": "node server/renderToStaticMarkup/buildStatic.js && http-server -c-1 ./server/renderToStaticMarkup/dist",
     "build:html": "cp client/hydrateRoot/index.html build/public/index.html",
-    "build:components": "esbuild shared/components/App.js --outfile=build/public/js/components/App.js --bundle --loader:.js=jsx --platform=browser --define:process.env.NODE_ENV=\\\"production\\\" --minify",
-    "build:client": "cp client/hydrateRoot/js/index.js build/public/js/index.js",
-    "build:server-1": "esbuild server/renderToString/index.js --bundle --outfile=build/server.js --platform=node --loader:.js=jsx --format=esm",
-    "start:hydrate-1": "mkdir -p build/public/js/components && run-p build:client build:html build:components build:server-1 && node build/server.js",
+    "build:components": "esbuild shared/components/App.js --outfile=build/public/js/components/App.js --bundle --loader:.js=jsx --platform=browser",
+    "build:client": "esbuild client/hydrateRoot/js/index.js --outfile=build/public/js/index.js --bundle --loader:.js=jsx --platform=browser",
+    "build:server-1": "esbuild server/renderToString/index.cjs --bundle --outfile=build/server.cjs --platform=node --loader:.js=jsx",
+    "start:hydrate-1": "mkdir -p build/public/js/components && run-p build:client build:html build:components build:server-1 && node build/server.cjs",
     "start:hydrate-2": "run-p",
     "start:hydrate-3": "run-p",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -22,6 +22,9 @@
   ],
   "author": "MBing",
   "license": "MIT",
+  "engines": {
+    "node": ">=18.18.0"
+  },
   "dependencies": {
     "express": "^4.18.2",
     "react": "^18.2.0",

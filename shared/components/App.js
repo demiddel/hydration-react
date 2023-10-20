@@ -1,9 +1,9 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 
 const App = ({ initialState = false }) => {
-  const [isClient, setIsClient] = React.useState(false);
+  const [isClient, setIsClient] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setIsClient(true);
   }, []);
 
