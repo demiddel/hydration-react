@@ -1,16 +1,15 @@
 // Basic SSR Example with hydration.
 // Using esbuild to bundle the client and server code.
-const path = require("path");
-const fs = require("fs");
+import path from "path";
+import fs from "fs";
 
-const express = require("express");
-const { renderToString } = require("react-dom/server");
+import express from "express";
+import { renderToString } from "react-dom/server";
+import { App } from "./../../shared/components/App.js";
 
 const PORT = process.env.PORT || 3000;
 const app = express();
-const publicPath = path.resolve(__dirname + "/public");
-
-const App = require(publicPath + "/js/components/App");
+const publicPath = path.join(__dirname + "/public");
 
 app.use(express.static(publicPath));
 

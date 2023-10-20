@@ -1,19 +1,19 @@
 {
   "name": "hydration-react",
   "version": "0.0.1",
+  "type": "module",
   "description": "A combination of hydration possibilities created with React",
   "main": "index.js",
   "scripts": {
-    "http": "http-server -c-1",
     "start:csr": "http-server -c-1 ./client/createRoot",
     "start:ssg": "node server/renderToStaticMarkup/buildStatic.js && http-server -c-1 ./server/renderToStaticMarkup/dist",
     "build:html": "cp client/hydrateRoot/index.html build/public/index.html",
-    "build:components": "esbuild shared/components/* --bundle --outdir=build/public/js/components --loader:.js=jsx",
-    "build:client": "esbuild client/hydrateRoot/index.js --bundle --outfile=build/public/js/index.js --loader:.js=jsx",
-    "build:server-1": "esbuild server/renderToString/index.js --bundle --outfile=build/server.js --platform=node --loader:.js=jsx",
-    "start:hydrate-1": "conc 'npm run build:html' 'npm run build:components' 'npm run build:client' 'npm run build:server-1' && node build/server.js",
-    "start:hydrate-2": "conc",
-    "start:hydrate-3": "conc",
+    "build:components": "esbuild shared/components/App.js --outfile=build/public/js/components/App.js --bundle --loader:.js=jsx --platform=browser --define:process.env.NODE_ENV=\\\"production\\\" --minify",
+    "build:client": "cp client/hydrateRoot/js/index.js build/public/js/index.js",
+    "build:server-1": "esbuild server/renderToString/index.js --bundle --outfile=build/server.js --platform=node --loader:.js=jsx --format=esm",
+    "start:hydrate-1": "mkdir -p build/public/js/components && run-p build:client build:html build:components build:server-1 && node build/server.js",
+    "start:hydrate-2": "run-p",
+    "start:hydrate-3": "run-p",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -33,8 +33,8 @@
     "@babel/preset-env": "^7.23.2",
     "@babel/preset-react": "^7.22.15",
     "@babel/register": "^7.22.15",
-    "concurrently": "^8.2.1",
     "esbuild": "^0.19.5",
-    "http-server": "^14.1.1"
+    "http-server": "^14.1.1",
+    "npm-run-all": "^4.1.5"
   }
 }

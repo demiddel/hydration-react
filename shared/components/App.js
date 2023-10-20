@@ -10,4 +10,4 @@ const App = ({ initialState = false }) => {
   return <h1>{isClient ? "Is Client" : "Is Server"}</h1>;
 };
 
-export default App ;
+export { App };
