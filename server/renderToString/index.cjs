@@ -15,7 +15,7 @@ const publicPath = path.join(__dirname + "/public");
 app.use(express.static(publicPath));
 
 app.get("/", (req, res) => {
-  const html = renderToString(App({ initialState: false }));
+  const html = renderToString(App());
 
   fs.readFile(`${publicPath}/index.html`, "utf8", (err, data) => {
     if (err) {

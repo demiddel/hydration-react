@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const App = ({ initialState = false }) => {
+const App = (props) => {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
