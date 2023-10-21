@@ -6,11 +6,8 @@
   "scripts": {
     "start:csr": "http-server -c-1 ./client/createRoot",
     "start:ssg": "node server/renderToStaticMarkup/buildStatic.js && http-server -c-1 ./server/renderToStaticMarkup/dist",
-    "build:html": "cp client/hydrateRoot/index.html build/public/index.html",
-    "build:components": "esbuild shared/components/App.js --outfile=build/public/js/components/App.js --bundle --loader:.js=jsx --platform=browser --external:react*",
     "build:client": "esbuild client/hydrateRoot/js/index.js --outfile=build/public/js/index.js --bundle --loader:.js=jsx --platform=browser",
-    "build:server-1": "esbuild server/renderToString/index.js --bundle --outfile=build/server.js --platform=node --loader:.js=jsx --external:react*",
-    "start:hydrate-1": "mkdir -p build/public/js && run-p build:client build:html build:server-1 && node build/server.js",
+    "start:hydrate-1": "mkdir -p build/public/js && npm run build:client && node server/renderToString/index.js",
     "start:hydrate-2": "run-p",
     "start:hydrate-3": "run-p",
     "test": "echo \"Error: no test specified\" && exit 1"

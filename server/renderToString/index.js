@@ -4,22 +4,24 @@ const path = require("path");
 const fs = require("fs");
 
 const express = require("express");
-// const { renderToString } = require("react-dom/server");
+require("@babel/register");
+const { renderToString } = require("react-dom/server");
 
 const { App } = require("../../shared/components/App.js");
 
 const PORT = process.env.PORT || 3000;
 const app = express();
 
-const publicPath = path.join(__dirname + "/public");
+const publicPath = path.resolve(__dirname + "./../../build/public");
+const htmlIndex = path.resolve(__dirname + "/public/index.html");
 console.log("using public path", publicPath);
 
 app.use("/js", express.static(publicPath + "/js"));
 
 app.get("/", (req, res) => {
-  // const html = renderToString(App());
+  const html = renderToString(App());
 
-  fs.readFile(`${publicPath}/index.html`, "utf8", (err, data) => {
+  fs.readFile(htmlIndex, "utf8", (err, data) => {
     if (err) {
       console.error(err);
       return res.status(500).send("An error occurred");
@@ -27,10 +29,7 @@ app.get("/", (req, res) => {
 
     return res.send(
       // data.replace('<div id="root"></div>', `<div id="root">${html}</div>`)
-      data.replace(
-        '<div id="root"></div>',
-        `<div id="root"><h1>Is Server</h1></div>`
-      )
+      data.replace('<div id="root"></div>', `<div id="root">${html}</div>`)
     );
   });
 });

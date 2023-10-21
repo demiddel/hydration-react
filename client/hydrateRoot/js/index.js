@@ -3,8 +3,9 @@
 // A common approach is to save these components in a shared folder, so that both the server and client can import them.
 
 // Get App component from shared folder `./js/App.js`.
+
 import React from "react";
 import { hydrateRoot } from "react-dom/client";
-import { App } from "./../../../shared/components/App";
+import { App } from "../../../shared/components/App";
 
 hydrateRoot(document.getElementById("root"), <App />);
