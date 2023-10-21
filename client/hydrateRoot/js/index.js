@@ -7,7 +7,4 @@ import React from "react";
 import { hydrateRoot } from "react-dom/client";
 import { App } from "./../../../shared/components/App";
 
-// Delay the hydration to simulate a slow connection.
-setTimeout(() => {
-  hydrateRoot(document.getElementById("root"), <App />);
-}, 3000);
+hydrateRoot(document.getElementById("root"), <App />);
