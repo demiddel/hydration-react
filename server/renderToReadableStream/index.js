@@ -6,7 +6,7 @@ const fs = require("fs");
 
 const express = require("express");
 const React = require("react");
-const { renderToString } = require("react-dom/server");
+const { renderToReadableStream } = require("react-dom/server");
 
 const { App } = require("../../shared/components/App.js");
 
@@ -20,7 +20,7 @@ app.use("/js", express.static(publicPath + "/js"));
 const reactNode = React.createElement(App);
 
 app.get("/", (req, res) => {
-  const html = renderToString(reactNode);
+  const html = renderToReadableStream(reactNode);
 
   fs.readFile(htmlIndex, "utf8", (err, data) => {
     if (err) {
