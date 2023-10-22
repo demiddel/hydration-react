@@ -5,6 +5,7 @@ const fs = require("fs");
 
 const express = require("express");
 require("@babel/register");
+const React = require("react");
 const { renderToString } = require("react-dom/server");
 
 const { App } = require("../../shared/components/App.js");
@@ -14,12 +15,12 @@ const app = express();
 
 const publicPath = path.resolve(__dirname + "./../../build/public");
 const htmlIndex = path.resolve(__dirname + "/public/index.html");
-console.log("using public path", publicPath);
 
 app.use("/js", express.static(publicPath + "/js"));
+const reactNode = React.createElement(App);
 
 app.get("/", (req, res) => {
-  const html = renderToString(App());
+  const html = renderToString(reactNode);
 
   fs.readFile(htmlIndex, "utf8", (err, data) => {
     if (err) {
@@ -28,7 +29,6 @@ app.get("/", (req, res) => {
     }
 
     return res.send(
-      // data.replace('<div id="root"></div>', `<div id="root">${html}</div>`)
       data.replace('<div id="root"></div>', `<div id="root">${html}</div>`)
     );
   });
