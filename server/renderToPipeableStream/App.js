@@ -1,21 +1,6 @@
-import React, { lazy, Suspense } from "react";
+import React from "react";
 
 import Home from "./components/Home.js";
-
-const About = lazy(() => import("./components/About.js"));
-
-const Spinner = () => <div>Loading...</div>;
-
-const Main = () => {
-  return (
-    <>
-      <Home />
-      <Suspense fallback={<Spinner />}>
-        <About />
-      </Suspense>
-    </>
-  );
-};
 
 const App = () => {
   return (
@@ -28,7 +13,8 @@ const App = () => {
       </head>
       <body>
         <div id="root">
-          <Main />
+          {/* <Nav /> */}
+          <Home />
         </div>
       </body>
     </html>

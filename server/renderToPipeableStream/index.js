@@ -7,6 +7,7 @@ const fs = require("fs");
 const express = require("express");
 const React = require("react");
 const { renderToPipeableStream } = require("react-dom/server");
+const { StaticRouter } = require("react-router-dom");
 
 const App = require("./App.js");
 
@@ -18,8 +19,14 @@ const publicPath = path.resolve(__dirname + "./../../build/public");
 app.use("/js", express.static(publicPath + "/js"));
 const reactNode = React.createElement(App.default);
 
-app.get("/", (req, res) => {
+app.get("*", async (req, res) => {
   res.socket.on("error", (error) => console.log("Fatal Socket Error:", error));
+
+  // const reactNode = React.createElement(
+  //   StaticRouter,
+  //   { location: req.url },
+  //   App
+  // );
 
   let hasError = false;
   // Render the application into a stream using `renderToPipeadableStream` and pipe that into the response
