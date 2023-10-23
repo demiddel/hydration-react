@@ -7,10 +7,10 @@
     "start:csr": "http-server -c-1 ./client/createRoot",
     "start:ssg": "node server/renderToStaticMarkup/buildStatic.js && http-server -c-1 ./server/renderToStaticMarkup/dist",
     "build:client": "esbuild client/hydrateRoot/js/index.js --outfile=build/public/js/index.js --bundle --loader:.js=jsx --platform=browser",
+    "build:client-2": "esbuild server/renderToPipeableStream/App.js --outfile=build/public/js/index.js --bundle --loader:.js=jsx --platform=browser",
     "build:public": "mkdir -p build/public/js",
-    "start:hydrate-1": "run-p build:public build:client && node server/renderToString",
-    "start:hydrate-2": "run-p build:public build:client && node server/renderToReadableStream",
-    "start:hydrate-3": "run-p",
+    "start:ssr-1": "run-p build:public build:client && node server/renderToString",
+    "start:ssr-2": "run-p build:public build:client-2 && node server/renderToPipeableStream",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
