@@ -2,12 +2,17 @@
 import path from "node:path";
 
 import express from "express";
-import React, { createElement } from "react";
+import React from "react";
 import { renderToPipeableStream } from "react-dom/server";
-import { StaticRouter } from "react-router-dom/server";
+import {
+  StaticRouterProvider,
+  createStaticRouter,
+  createStaticHandler,
+} from "react-router-dom/server";
+import { createFetchRequest } from "../utils/request";
 
-import App from "./App.js";
-import { __dirname } from "./expose.cjs";
+import { __dirname } from "../utils/expose.cjs";
+import { routes } from "./routes.js";
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -16,10 +21,22 @@ const publicPath = path.resolve(__dirname + "./../../build/public");
 
 app.use("/js", express.static(publicPath + "/js"));
 
+let { query, dataRoutes } = createStaticHandler(routes);
+
 app.get("*", async (req, res) => {
   res.socket.on("error", (error) => console.log("Fatal Socket Error:", error));
+  let fetchRequest = createFetchRequest(req);
+  let context = await query(fetchRequest);
 
-  const reactNode = createElement(StaticRouter, { location: req.url }, <App />);
+  // If we got a redirect response, short circuit and let our Express server
+  // handle that directly
+  if (context instanceof Response) {
+    throw context;
+  }
+
+  const router = createStaticRouter(dataRoutes, context);
+
+  const reactNode = <StaticRouterProvider router={router} context={context} />;
 
   let hasError = false;
   // Render the application into a stream using `renderToPipeadableStream` and pipe that into the response

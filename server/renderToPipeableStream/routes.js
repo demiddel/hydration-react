@@ -1,8 +1,7 @@
 import React, { Suspense, lazy } from "react";
 
 import Home from "./components/Home";
-import Layout from "./components/shared/Layout";
-import App from "./components/App";
+import App from "./App";
 
 const About = lazy(() => import("./components/About"));
 

@@ -11,7 +11,5 @@ const router = createBrowserRouter(routes);
 
 hydrateRoot(
   document.getElementById("root"),
-  <RouterProvider router={router} fallbackElement={Spinner}>
-    <App />
-  </RouterProvider>
+  <RouterProvider router={router} fallbackElement={Spinner} />
 );
