@@ -17,9 +17,10 @@ const Home = () => {
       </p>
 
       <p>
-        Cum nihil minus est delectus inventore est rerum repellat. In doloremque
-        illum ut quam quia sit ducimus impedit ut aliquam culpa ad fuga
-        blanditiis ea aliquid sunt non nihil adipisci?
+        Hic voluptatum perferendis et fugit dolore ea quasi officia aut
+        accusantium officia qui totam numquam a totam quis. A voluptatem dolores
+        est dolores aspernatur et iste totam ut rerum magnam aut vero nisi ad
+        ratione quae.
       </p>
     </div>
   );

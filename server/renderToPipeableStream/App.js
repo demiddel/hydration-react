@@ -1,6 +1,5 @@
 import React from "react";
-
-import Home from "./components/Home.js";
+import Layout from "./components/shared/Layout";
 
 const App = () => {
   return (
@@ -13,8 +12,7 @@ const App = () => {
       </head>
       <body>
         <div id="root">
-          {/* <Nav /> */}
-          <Home />
+          <Layout />
         </div>
       </body>
     </html>
