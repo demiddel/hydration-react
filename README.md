@@ -7,6 +7,9 @@ This repo contains examples of how React uses hydration and rendering. This is p
 To highlight the differences on a scale between DevX and UX, see the image below:
 ![Hydration Comparison Image](img/hydration_comparison.jpg)
 
+A more detailed flow image of CSR, SSR with and without Hydration can be found below:
+![CSR SSR and SSR with Hydration Flow](img/hydration_comparison_in_flow.jpg)
+
 ## Disclaimer
 
 Most of these use examples are not something you will be doing yourself, this is a peek at what frameworks like Remix, NextJS, Gatsby, etc. are doing under the hood.
