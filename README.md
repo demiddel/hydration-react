@@ -12,7 +12,7 @@ A more detailed flow image of CSR, SSR with and without Hydration can be found b
 
 ## Disclaimer
 
-Most of these use examples are not something you will be doing yourself, this is a peek at what frameworks like Remix, NextJS, Gatsby, etc. are doing under the hood.
+Most of these examples are not something you will be doing yourself, this is a peek at what frameworks like Remix, NextJS, Gatsby, etc. are doing under the hood.
 
 ## Technologies Used
 
