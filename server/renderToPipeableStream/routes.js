@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from "react";
 
 import Home from "./components/Home";
 import App from "./App";
+import Spinner from "./components/shared/Spinner";
 
 const About = lazy(() => import("./components/About"));
 
@@ -14,7 +15,7 @@ export const routes = [
       {
         path: "/about",
         element: (
-          <Suspense>
+          <Suspense fallback={<Spinner />}>
             <About />
           </Suspense>
         ),
